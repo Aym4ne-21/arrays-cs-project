@@ -109,6 +109,20 @@ public class ManageStudent {
         return newStudents;
     }
 
+
+
+
+    public static Student findTopStudent(Student[] students) {
+        Student topStudent = students[0];
+
+        for(int i = 0 ; i < students.length ; i++){
+            if(students[i].getGrade() > topStudent.getGrade()){
+                topStudent = students[i];
+            }
+        }
+        return topStudent;
+    }
+
     // 1) Create an Array of Students + demos for all tasks
     public static void main(String[] args) {
         // Create & initialize array of 5 students
@@ -176,6 +190,35 @@ public class ManageStudent {
         Student s6 = new Student(6, "Sara", 21, 16);
         arr = appendStudent(arr, s6);
         for (Student s : arr) System.out.println(s);
+
+
+        System.out.println("\n");
+        Student[][] school = new Student[2][3];
+        Student[] classroom_1 = school[0];
+        classroom_1[0] = new Student(1, "Aymane" ,19 , 20);
+        classroom_1[1] = new Student(2, "Hiba" ,20 , 18);
+        classroom_1[2] = new Student(3, "Rayane" ,20 , 15);
+
+
+        Student[] classroom_2 = school[1];
+        classroom_2[0] = new Student(4, "Amine" ,19 , 19);
+        classroom_2[1] = new Student(5, "Imane" ,20 , 17);
+        classroom_2[2] = new Student(6, "Hamza" ,20 , 12);
+
+        for(int i = 0 ; i < school.length ; i++){
+            System.out.println("Classrom N° = "+ (i+1)+ " :");
+            for(int j = 0 ; j < school[i].length; j++){
+                System.out.println(school[i][j].getName());
+            }
+            System.out.println("\n");
+
+        }
+
+        for(int i = 0 ; i < school.length ; i++){
+            System.out.println("Top student in Classroo N° = "+(i+1)+ " :");
+            System.out.println(findTopStudent(school[i]).getName());
+        }
+
     }
 }
 
