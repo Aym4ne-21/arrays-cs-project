@@ -175,6 +175,7 @@ public class ManageStudent {
         // 10) Append new student
         Student s6 = new Student(6, "Sara", 21, 16);
         arr = appendStudent(arr, s6);
+        for (Student s : arr) System.out.println(s);
     }
 }
 
